@@ -1,0 +1,258 @@
+:root {
+  --stone-bg: #0b1c2b;       /* darker cold blue background */
+  --stone-dark: #232f3e;
+  --box-bg: #3a4a5b;         /* darker interior */
+  --text-color: #0b1c2b;
+  --outline: #0b1a2b;
+  --flame-color: #ffcf67;
+  --glow: rgba(255, 160, 60, 0.6);
+  --font: "Crimson Pro", serif;
+}
+
+/* PAGE */
+html, body {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font);
+  color: var(--text-color);
+  position: relative;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+html{
+  background-image: url(./stoneBg.PNG);
+}
+/* TORCHES */
+
+.torch.left { left: -270px; }
+.torch.right { right: -270px; }
+
+.torch {
+  position: absolute;
+  top: 35%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 180px;
+  background: none;           /* remove stone block if unwanted */
+  pointer-events: none;
+}
+
+.torch-gif {
+  position: absolute;
+  top: -40px;                 /* tweak until it sits right */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;                /* scale here */
+  height: auto;
+  image-rendering: auto;
+}
+
+.torch-invert{
+  transform: translateX(-50%) scaleX(-1);
+}
+
+.flame {
+  position: absolute;
+  top: -60%;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  width: 400px;
+  height: 400px;
+
+  pointer-events: none;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 180, 80, 0.55) 0%,
+    rgba(255, 140, 40, 0.35) 30%,
+    rgba(255, 120, 20, 0.18) 55%,
+    rgba(255, 100, 10, 0.08) 70%,
+    rgba(255, 80, 0, 0.0) 100%
+  );
+
+  filter: blur(8px);
+  mix-blend-mode: screen;
+
+  animation: glow-flicker 0.12s infinite alternate;
+  z-index: 10;
+}
+
+@keyframes glow-flicker {
+  0% {
+    opacity: 0.85;
+    transform: translateX(-50%) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.08);
+  }
+}
+
+.content-box{
+  font-size: 1rem;
+  text-align: left;
+  width: 28rem;
+  padding: 0rem 2rem;
+}
+
+.paper-box {
+  width: 40rem;
+  height: 50rem;
+  background-color: #ffcf67;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.nav-buttons {
+  width: 100%;
+}
+
+.nav-buttons ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between; /* ← opposite corners */
+  align-items: center;
+
+}
+
+.nav-buttons li {
+  display: inline-block;
+
+}
+
+a{
+    text-decoration: none;
+    color: #0b1c2b;
+    opacity: 0.5;
+}
+
+a:hover{
+    color: #0b1c2b;
+    opacity: 1;
+}
+
+.nav-buttons {
+  width: 100%;
+  margin-top: auto; /* ← pushes it to the bottom */
+  font-size: 1.1rem;
+  font-family: "Bad Script", cursive;
+  font-weight: 800;
+  font-style: normal;
+
+}
+
+.nav-buttons button {
+  background: #1b2a3a;
+  color: #e7eef5;
+  border: 2px solid #0b1a2b;
+  padding: 0.6rem 1.5rem;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.content-box {
+  position: relative;
+  z-index: 2;
+
+}
+
+.torch {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.btn-left{
+  padding-left: 2rem;
+}
+
+.btn-right{
+  padding-right: 2rem;
+}
+
+.caveat{
+  font-family: 'Caveat';
+}
+
+.indie-flower-regular {
+  font-size: 1.2rem;
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.shadows-into-light-regular {
+  font-size: 1.2rem;
+  font-family: "Shadows Into Light", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.caveat{
+  font-size: 1.3rem;
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.content-box .caveat{
+  width: 27rem;
+}
+
+.bad-script-regular {
+  font-family: "Bad Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.page1{
+  width: 34.375rem;
+  height: 50rem;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 2rem;
+  box-sizing: border-box;
+  background-image: url(./smallerPage1.PNG);
+
+}
+
+.page2{
+  width: 34.375rem;
+  height: 50rem;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 2rem;
+  box-sizing: border-box;
+  background-image: url(./smallerPage2.PNG);
+
+}
+
+.page3{
+  width: 34.375rem;
+  height: 50rem;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 2rem;
+  box-sizing: border-box;
+  background-image: url(./smallerPage3.PNG);
+}
